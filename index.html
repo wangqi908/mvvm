@@ -9,9 +9,19 @@
   </head>
   <body>
     <div id="app">
+      <input type="text" v-model="name" />
+      <div>{{school.name}}</div>
       <ul>
         <li>{{ name }}</li>
+        <li>{{ school.vv.cc }}</li>
       </ul>
+      <p v-text="msg"></p>
+      <p v-html="msg"></p>
+      <p>{{hello}}</p>
+
+      <button v-on:click="show">show</button>
+      <button @click="show1">show1</button>
+      <p class="aa" v-class="name">{{name}}</p>
     </div>
   </body>
 </html>
@@ -22,8 +32,30 @@
     el: '#app',
     data: {
       name: 'zs',
-      a: {
-        b: '1'
+      school: {
+        name: 'abc',
+        vv: {
+          cc: 'aaa'
+        }
+      },
+      msg: '<a href="https://cn.vuejs.org/">vue</a>'
+    },
+    methods: {
+      show() {
+        // this.name = 'ls'
+        console.log(this)
+      },
+      show1() {
+        this.name = 'zs'
+        console.log(this.name)
+      }
+    },
+    created() {
+      console.log(this, 'created')
+    },
+    computed: {
+      hello() {
+        return this.name + '---' + this.school.name
       }
     }
   })

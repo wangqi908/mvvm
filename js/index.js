@@ -1,4 +1,5 @@
 import { Observer } from './observer.js'
+import { Compiler } from './compiler.js'
 export class Mvvm {
   constructor (options) {
     this.$options = options
@@ -9,6 +10,8 @@ export class Mvvm {
 
     // eslint-disable-next-line no-new
     new Observer(this.$data)
+    // eslint-disable-next-line no-new
+    new Compiler(this.$el, this)
   }
 
   proxyData () {
