@@ -55,7 +55,6 @@ const utils = {
       初始化编译和更新的时候,bind()方法会调用data对象set和get
       watcher实例化时会调用getOldValue(),于是会调用data对象get,此时便可以给Dep添加watcher
     */
-    // eslint-disable-next-line no-new
     new Watcher(exp, vm, (newVal, oldVal) => {
       updaterFn && updaterFn(node, newVal, oldVal)
     })

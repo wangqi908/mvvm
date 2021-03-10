@@ -8,9 +8,7 @@ export class Mvvm {
 
     this.proxyData()
 
-    // eslint-disable-next-line no-new
     new Observer(this.$data)
-    // eslint-disable-next-line no-new
     new Compiler(this.$el, this)
   }
 
